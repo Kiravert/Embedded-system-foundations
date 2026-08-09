@@ -24,6 +24,20 @@ I'm a 2nd-year Electrical and Computer Engineering student , building toward a c
 
 - The first Half Adder processes A and B. The second Half Adder combines the first result with the Carry-In. The two carry outputs are then it will be combined using an OR gate to produce the Carry-Out.
 
-- i Tested the Full Adder using all 8 possible combinations of the three inputs i saw it first using truth table. The results matched binary addition, confirming that the circuit was working correctly.
+### my Day 3 — Boolean Algebra, De Morgan's Theorem & Karnaugh Maps
 
-- This all helped me understand how simple logic gates can be combined and operate to build arithmetic circuits, its amazing btw. and also By chaining multiple Full Adders together, a circuit can perform multi-bit binary addition, which connects digital logic to the arithmetic hardware used inside computer processors and ALUs as i understood it from different sources.
+-today i studied Boolean algebra and the fundamental laws used to simplify digital logic, including Identity, Null, Idempotent, Complement, Commutative, Associative, Distributive, and Absorption laws.
+
+-i Studied De Morgan's Theorems and also learned how NOT changes AND into OR and OR into AND while complementing the variables.
+
+-i Learned how the Karnaugh maps can be used to simplify Boolean expressions by grouping adjacent 1s and eliminating variables that change within a valid group and i tested it.
+
+-i also Practiced Boolean simplification using Karnaugh maps and then verified one of my simplifications in Logisim Evolution.
+
+- To verify the result, I built two circuits the one using the ORIGINAL unsimplified Boolean expression and another using the SIMPLIFIED expression obtained from the Karnaugh map.
+
+- I connected the same inputs to both circuits and tested all possible inputs. Both circuits produced identical outputs for every combination, confirming that the simplified expression was logically equivalent to the original expression and that was very satisfying...
+
+- This was an important step for me because I was not only simplifying the expression mathematically but I verified the result physically as a digital circuit. 
+
+- This all helped me understand how simple logic gates can be combined and operate to build arithmetic circuits, its amazing btw. and also By chaining multiple Full Adders together,,, a circuit can perform multibit binary additions, which connects digital logic to the arithmetic hardware.
