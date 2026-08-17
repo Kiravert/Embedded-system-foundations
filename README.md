@@ -41,3 +41,21 @@ I'm a 2nd-year Electrical and Computer Engineering student , building toward a c
 - This was an important step for me because I was not only simplifying the expression mathematically but I verified the result physically as a digital circuit. 
 
 - This all helped me understand how simple logic gates can be combined and operate to build arithmetic circuits, its amazing btw. and also By chaining multiple Full Adders together,,, a circuit can perform multibit binary additions, which connects digital logic to the arithmetic hardware.
+
+  ### my Day 4 Sequential Logic, Flip-Flops, Registers & Counters
+
+-i umm learned the difference between combinational and sequential logics. Unlike the combinational circuits I built earlier, sequential circuits have memory, so their behavior depends not only on the current inputs but also on the stored states.
+
+-i studied the D flip-flop and learnes that it stores one bit of data. On the active clock edge, the value on D is captured or stored and appears at Q, while changes on D between clock edges do not immediately change Q but when it comes to latch its a bit different.
+
+-i reviewed SR, JK, and T flip-flops. SR provides Set and Reset, JK improves the SR behavior and can toggle, and T is designed to toggle its stored state when enabled. The D flip-flop is especially useful for storing arbitrary data bits.
+
+-i learned how an SR latch can be built from two crossly coupled NAND gates. The feedback between the gates allows the circuit to maintain a stable state even after the original Set or Reset signal is removed. I then used this idea to construct a D latch from NAND gates, an inverter, and clock gating.
+
+-i learned that a register is a group of flip-flops working together to store multiple bits. For example, an 8-bit register can be built from eight D flip-flops, with each flip-flop storing one bit and it has the same clock all together.
+
+-i connected the idea of a D flip-flop to an MCU register: one D flip-flop stores one bit, while multiple flip-flops form a register that stores an entire multi-bit values. 
+
+-i built and tested a 2bit synchronous counter in Logisim Evolution. The counter cycles through 00 → 01 → 10 → 11 → 00 using two D flip-flops driven by the same clocks and one XOR gate and not gate as the digits depend each other
+
+-i added Enable control so that the counter can either continue counting or hold its current state. Verified that when Enable is disabled, clock edges occur but the stored count does not change and i added a synchronous Reset so that the counter returns to 00 on the next clock edge when Reset is activated, i used multiplexer to do that.
