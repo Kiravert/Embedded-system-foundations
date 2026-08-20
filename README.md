@@ -59,3 +59,22 @@ I'm a 2nd-year Electrical and Computer Engineering student , building toward a c
 -i built and tested a 2bit synchronous counter in Logisim Evolution. The counter cycles through 00 → 01 → 10 → 11 → 00 using two D flip-flops driven by the same clocks and one XOR gate and not gate as the digits depend each other
 
 -i added Enable control so that the counter can either continue counting or hold its current state. Verified that when Enable is disabled, clock edges occur but the stored count does not change and i added a synchronous Reset so that the counter returns to 00 on the next clock edge when Reset is activated, i used multiplexer to do that.
+
+
+### my Day 5  : 4-bit Counter & Hex Display
+
+- i designed the 16-state sequence for a 4-bit synchronous counter, from 0000 through 1111 and back to 0000.
+
+- i extended my previous 2-bit counter into a 4-bit counter using four D flip-flops with a shared clock. The lower bits determine when the higher bits toggle, reproducing normal binary counting behavior i used xor to identify when the neighbour digits be 1 at the same time and that will change the value.
+
+- i added Enable and synchronous Reset controls. With Enable disabled, the counter holds its current state while the clock continues running with Reset enabled, the counter returns to 0000 on the next clock edges.
+
+- i also studied the seven segments of a hexadecimal display and derived the logic for segment 'a' using a 16row truth table and i simplified it via a 4variable Karnaugh map, wow kmap is the goat. This proves how the binary counter output can be converted into the individual signals needed by the display.
+
+-i connected the 4-bit counter to Logisim Evolutions Hex Digit Display and tested the complete sequence from 0 through F
+
+- verified that Enable freezes the displayed value and that synchronous Reset returns the system to 0 on the next clock edge.
+
+- this brought together the main concepts from my first week: Boolean logic, simplification, memory, flip-flops, sequential state, counters, and decoding and its so satisfying.
+
+-  an MCU timer/counter peripheral uses the same idea of clocked counter state and control logics, but the circuitry is implemented directly inside the microcontroller siliconthan as individual Logisim components.
