@@ -78,3 +78,35 @@ I'm a 2nd-year Electrical and Computer Engineering student , building toward a c
 - this brought together the main concepts from my first week: Boolean logic, simplification, memory, flip-flops, sequential state, counters, and decoding and its so satisfying.
 
 -  an MCU timer/counter peripheral uses the same idea of clocked counter state and control logics, but the circuitry is implemented directly inside the microcontroller siliconthan as individual Logisim components.
+
+  ### Day 6  Circuit Analysis & First LTspice Simulations
+
+This day marked my first step from digital logic to basic electrical circuit analysis and SPICE simulations. Instead of only constructing logic circuits, I started calculating voltages and currents before simulating them.
+
+-i also revised Ohm's Law, which relates voltage, current, and resistance:
+
+  V = IR
+
+  I used it as the basic tool for predicting current and voltage in resistive circuits before we open the simulator.
+
+-i studied Kirchhoffs Voltage Law (KVL) the algebraic sum of all voltage changes around a closed loop is zero. This gives a way to track how the source voltage is distributed across the different components in the circuit.
+
+-i studied Kirchhoffs Current Law (KCL) the current entering a node must equal the current leaving it. This is also fundamental for understanding how current behaves when a circuit splits into multiple path.
+
+-i built my first LED circuit in LTspice using a 5 V source, a 470 Ω series resistor, an LED, and ground. Before the simulation, I calculated the expected current using a 0.7V geneeric LED forward voltage:
+
+  I = (5 V - 0.7 V) / 470 Ω ≈ 9.15 mA
+
+  The resistor limits the LED current and keeps it below the 20 mA target used
+
+-i simulated the LED circuit in LTspice and compared the simulated behavior with the hand calculation. I also encountered and debugged a simulation that initially produced almost zero current, which helped me understand that a SPICE result is only useful when the circuit topology, component orientation, and connections are correct.
+
+- i built a voltage divider using a 5 V source and two 10 kΩ resistors. Since the two resistors are equal, the midpoint voltage was calculated as:
+
+  V out = 5 × 10kΩ / (10kΩ + 10kΩ) = 2.5 V
+
+  I verified the result in LTspice and then changed the resistor ratio to observe how the output voltage changes.
+
+- i earned why voltage dividers matter in embedded systems The output voltage depends on the resistor ratio, and in a real circuit the load connected to the divider also affects the result too.
+
+- The main lesson from this day was the workflow of calculate → build → simulate → measure → compare → debug. LTspice is not replacing circuit analysis; it gives me a way to verify my calculations and investigate where real circuit behavior differs from simplified assumption.
