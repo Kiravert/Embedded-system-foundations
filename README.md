@@ -110,3 +110,21 @@ This day marked my first step from digital logic to basic electrical circuit ana
 - i earned why voltage dividers matter in embedded systems The output voltage depends on the resistor ratio, and in a real circuit the load connected to the divider also affects the result too.
 
 - The main lesson from this day was the workflow of calculate → build → simulate → measure → compare → debug. LTspice is not replacing circuit analysis; it gives me a way to verify my calculations and investigate where real circuit behavior differs from simplified assumption.
+
+  # Day 7 RC Circuits, Low-Pass Filters, and Time Constants
+
+## 1. The RC Time Constant (Tau / $\tau$)
+ The time constant ($\tau = R \times C$) measures how sluggishly the capacitor charges or discharges. It is defined as the time it takes to reach approximately **63.2%** of its final target voltage.
+* **Our Circuit Parameters:** With a 10 k$\Omega$ resistor and a 100 µF capacitor, our time constant is calculated as:
+  $$\tau = 10,000\ \Omega \times 0.0001\ \text{F} = 1.0\ \text{seconds}$$
+
+## 2. Simulation & Measurement
+* **Transient Configuration:** Used `.tran 5 UIC` in LTSpice to override the default steady-state calculation, ensuring the simulation correctly starts with an empty capacitor ($0\text{V}$) at $t = 0$.
+* **Square Wave Filtering:** Tested 1 Hz and 10 Hz pulse inputs. The RC circuit acts as an electrical shock absorber, rounding off sharp digital edges. Fast signals (10 Hz) are compressed into a flat ripple centered around the 2.5V DC average, while slower signals (1 Hz) are allowed to swing more widely.
+
+## 3. Real-World Firmware & Hardware Applications
+* **RC Debounce Circuits:** Mechanical pushbuttons physically bounce when pressed, creating a burst of high-frequency noises. A small RC filter which include capacitor smooths out this chatter in hardware before it ever hits the microcontroller's GPIO pin.
+* **Decoupling Capacitors:** Placed right next to a microcontroller's power pins to absorb the microscopic, high-frequency voltage spikes caused by rapid internal transistor switching, keeping the power supply stable.
+
+## 4. Visuals
+* Saved transient response graph showing the capacitor charging curve and square-wave smoothing effect, uploaded on the files.
